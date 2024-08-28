@@ -19,9 +19,7 @@ Technologies used
 * CSS
 * Extent Reports
 
-Testcases covered
-
-Refer to MakeMyTrip.feature
+Testcases covered (Refer to MakeMyTrip.feature)
 
 * Hotel search 
 	1. Navigate to the url 
