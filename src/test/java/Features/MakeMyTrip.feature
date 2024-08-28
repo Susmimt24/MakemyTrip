@@ -1,19 +1,7 @@
 Feature: Make my trip application
   I want to use this template for my feature file
-       
-# @tag2
-#  Scenario Outline:  Make my trip flight search
-#    Given User is navigated to MakemyTrip url
-#    When user entered "<From>" and "<To>" places
-#    Then user entered "<FromDate>" and "<ToDate>"
-#    Then select the "<travellers>" and "<travellerClass>"
-#    Then click on Search
-#
-#    Examples: 
-#      | From | To | FromDate| ToDate| travellers | travellerClass |
-#      |Kochi | Chennai | 5 January 2025 | 10 April2025| 2| Premium Economy |
-      
-  @tag2
+  
+  @hotelsearch
   Scenario Outline:  Make my trip Hotel search
     Given User is navigated to MakemyTrip url
     When user click on "<Tab>" Tab
@@ -29,6 +17,20 @@ Feature: Make my trip application
 
     Examples: 
     |Tab  | Destination | CheckInDate| CheckOutDate| Rooms | Adults | Children | LowerPrice | HigherPrice |
-#    |Hotels | Chennai | 5 January2025| 9 January2025| 3| 4 |     3 |  15000 | 21000|
-    |Hotels | Kochi | 7 January2025| 8 January2025| 1| 1 |     0 |  6000 | 8000|
+    |Hotels | Chennai | 5 January2025| 9 January2025| 3| 4 |     3 |  15000 | 21000|
+    |Hotels | Kochi   | 7 January2025| 8 January2025| 1| 1 |     0 |  6000 | 8000|
       
+       
+ @flightsearch
+  Scenario Outline:  Make my trip flight search
+    Given User is navigated to MakemyTrip url
+    When user entered "<From>" and "<To>" places
+    Then user entered "<FromDate>" and "<ToDate>"
+    Then select the "<travellers>" and "<travellerClass>"
+    Then click on Search
+
+    Examples: 
+      | From | To | FromDate| ToDate| travellers | travellerClass |
+      |Kochi | Chennai | 5 January 2025 | 10 April2025| 2| Premium Economy |
+      |Goa | Mumbai | 9 March 2025 | 14 March 2025| 3 | Economy |
+  

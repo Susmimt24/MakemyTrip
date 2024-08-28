@@ -34,7 +34,6 @@ public class WorldNewsStepDef extends BaseClass {
 	
 	@Then("^Print current month WeekEnd Dates.$")
 	public void print_weekend() {
-	    // Write code here that turns the phrase above into concrete actions
 		df.enterDate();
 	   
 	}
@@ -42,8 +41,5 @@ public class WorldNewsStepDef extends BaseClass {
 	@Then("^Print the Current Date in format DD-MMMMM-YYYY$")
 	public void print_ddmmyy() {
 		df.selectCurrentDate();
-	    // Write code here that turns the phrase above into concrete actions
-		
-	   
 	}
 }

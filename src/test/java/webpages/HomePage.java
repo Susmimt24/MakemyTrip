@@ -15,10 +15,7 @@ public class HomePage {
 		}
 		
 		public void tabSelction(String tabname)
-		{//li[@data-cy = 'menu_Hotels']//a
-			//li[@data-cy = 'menu_Flights']//a[contains(@class,'active')]
-			//h1[contains(@data-cy,'HotelSearchWidget')]
-			//driver.findElement(By.xpath("//div/div/a[text()='"+tab+"']")).click();
+		{
 			driver.findElement(By.xpath("//li[@data-cy = 'menu_"+tabname+"']//a")).click();
 			 driver.navigate().refresh();
 			 WebDriverWait wait = new WebDriverWait(driver,15);

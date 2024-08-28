@@ -44,7 +44,7 @@ Map <String, String> hotelDetails = new HashMap<>();
 		String month = months.substring(2);
 		System.out.println(month);
 		Boolean flag = false;
-	   String firstmonth="",secondmonth="";
+	    String firstmonth="",secondmonth="";
 		for(int i =0;i<12;i++)
 		{
 		firstmonth = driver.findElement(By.xpath("//div[@class='DayPicker-Caption']/div")).getText();
@@ -58,12 +58,11 @@ Map <String, String> hotelDetails = new HashMap<>();
 		}
 		else{ driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
 		}}
-			if(flag){
-				if(month.equals(secondmonth)){ 
-				driver.findElement(By.xpath("(//div[@class='DayPicker-Month']//div[text()='"+day+"'])[2]")).click();				
-						}}}
-	
-	
+		if(flag){
+		if(month.equals(secondmonth)){ 
+		driver.findElement(By.xpath("(//div[@class='DayPicker-Month']//div[text()='"+day+"'])[2]")).click();				
+		}}}
+		
 	public void search(){
 		driver.findElement(By.xpath("//button[text()='Search']")).click();
 	}
@@ -93,9 +92,7 @@ Map <String, String> hotelDetails = new HashMap<>();
 
 	public void displayHotelDetails() {
 		
-		//List<WebElement> li = driver.findElements(By.xpath("//div//div/p[@id='hlistpg_hotel_name']/span[contains(@id,'htl_id')]"));
-		List<WebElement> hotelname = driver.findElements(By.cssSelector("div>div>p#hlistpg_hotel_name>span:first-child"));
-		
+		List<WebElement> hotelname = driver.findElements(By.cssSelector("div>div>p#hlistpg_hotel_name>span:first-child"));		
 		for(WebElement element : hotelname)
 		  {
 			 System.out.println("All Hotel names " + element.getText());
@@ -106,14 +103,11 @@ Map <String, String> hotelDetails = new HashMap<>();
 		  {
 			 System.out.println("All Hotel prices " + element.getText().substring(2));
 		  }
-		
-		
-		
 		for (int k = 0; k < hotelname.size(); k++)
 	    {
 			hotelDetails.put(hotelname.get(k).getText(), hotelprice.get(k).getText().substring(2));
 	    }
-		 System.out.println(hotelDetails);
+		System.out.println(hotelDetails);
 		 
 		 for(Map.Entry<String, String> set : hotelDetails.entrySet())
 		 {
@@ -132,6 +126,7 @@ Map <String, String> hotelDetails = new HashMap<>();
 				break;
 			}  }   }
 	
+	
 	public void selectRoom(){
 		ArrayList<String> wid = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(wid.get(1));
@@ -139,6 +134,7 @@ Map <String, String> hotelDetails = new HashMap<>();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Select Combo']")));
 		driver.findElement(By.xpath("//span[text()='Select Combo']")).click();	
 	}
+	
 	
 	public void review_booking()
 	{

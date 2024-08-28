@@ -37,18 +37,15 @@ public class HooksClass extends BaseClass{
 	
 	@After
 	public void teardown(Scenario scenario)
-	{
-		
-		
-//		//validate if scenario has failed
-//        if(!(scenario.isFailed())) {
-//            final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-//            scenario.attach(screenshot, "image/png", scenario.getName()); 
-//            System.out.println("Close browser");
-//            driver.quit();
-//        }   
-        
-        //HelperClass.tearDown();
+	{	
+      //validate if scenario has failed
+       if(!(scenario.isFailed())) 
+       {
+            final byte[] screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", scenario.getName()); 
+            System.out.println("Close browser");
+            driver.quit();       
+            }
     }
 		
 	}

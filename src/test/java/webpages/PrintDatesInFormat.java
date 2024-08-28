@@ -110,11 +110,8 @@ public class PrintDatesInFormat {
                     .findElement(By.xpath("//td[@data-handler='selectDay']//a[text()='" + day + "']"));
             String dayText = dayElement.getText();
             Assert.assertEquals(dayText, day);
-
             dayElement.click();
-
             System.out.println("Date: " + day + " " + month + " " + year);
-
             driver.switchTo().defaultContent();
         } catch (Exception e) {
             // TODO: handle exception
@@ -124,14 +121,8 @@ public class PrintDatesInFormat {
 	public void selectAnyDate() {
 
         try {
-          //  WebElement iframe = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
            driver.switchTo().frame(dateframe);
-
             String currentDate = "10/01/2024";
-            
-
-            
-
             driver.switchTo().defaultContent();
         } catch (Exception e) {
             // TODO: handle exception

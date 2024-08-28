@@ -13,9 +13,6 @@ import CommonProperties.BaseClass;
 public class FlightSearchPage {
 	WebDriver driver;
 	
-	
-	//private By 
-	
 	public FlightSearchPage(WebDriver driver)
 	{
 		this.driver =driver;
@@ -37,42 +34,39 @@ public class FlightSearchPage {
 	
 	public void selectDates(String FromDate, String ToDate)
 	{
-	//	String months = "5 January 2025";
 		String months = FromDate;
 		String day = months.substring(0, 1);
 		System.out.println(day);
 		String month = months.substring(2);
 		System.out.println(month);
 		Boolean flag = false;
-	   String firstmonth="",secondmonth="";
+	    String firstmonth="",secondmonth="";
 		for(int i =0;i<12;i++)
 		{
-		firstmonth = driver.findElement(By.xpath("//div[@class='DayPicker-Caption']/div")).getText();
-		secondmonth = driver.findElement(By.xpath("(//div[@class='DayPicker-Caption']/div)[2]")).getText();
-        if((month.equals(firstmonth)) || (month.equals(secondmonth)))
-		{
-        flag = true;
-		break;		
-		}
-		else
-		{ driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
-		}
-	}
+			firstmonth = driver.findElement(By.xpath("//div[@class='DayPicker-Caption']/div")).getText();
+			secondmonth = driver.findElement(By.xpath("(//div[@class='DayPicker-Caption']/div)[2]")).getText();
+	        if((month.equals(firstmonth)) || (month.equals(secondmonth)))
+			{
+	        flag = true;
+			break;		
+			}
+			else
+			{ driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
+			}
+		    }
 			if(flag)
 			{if(month.equals(secondmonth))
-						{ driver.findElement(By.xpath("(//div[@class='DayPicker-Month']//div[@class='DayPicker-Day']/div/p[text()='"+day+"'])[2]")).click();
-					
-						}
+			{ driver.findElement(By.xpath("(//div[@class='DayPicker-Month']//div[@class='DayPicker-Day']/div/p[text()='"+day+"'])[2]")).click();
+			}
 			}
 			
-			//String arrivalmonths = "10 April2025";
-			String arrivalmonths = ToDate;
-			String arrivalday = arrivalmonths.substring(0, 2);
-			System.out.println(arrivalday);
-			String arrivalmonth = arrivalmonths.substring(3);
-			System.out.println(arrivalmonth);	
+	 String arrivalmonths = ToDate;
+	 String arrivalday = arrivalmonths.substring(0, 2);
+	 System.out.println(arrivalday);
+	 String arrivalmonth = arrivalmonths.substring(3);
+	 System.out.println(arrivalmonth);	
 			
-	driver.findElement(By.xpath("//div[@data-cy = 'returnArea']")).click();		
+    driver.findElement(By.xpath("//div[@data-cy = 'returnArea']")).click();		
 	flag = false;		
 	for(int i =0;i<12;i++)
 	{
@@ -86,22 +80,16 @@ public class FlightSearchPage {
 	}
 	else
 	{ driver.findElement(By.xpath("//span[@class='DayPicker-NavButton DayPicker-NavButton--next']")).click();
-	}
-}
-		if(flag)
-		{if(arrivalmonth.equals(secondmonth))
-					{ driver.findElement(By.xpath("(//div[@class='DayPicker-Month']//div[@class='DayPicker-Day']/div/p[text()='"+arrivalday+"'])[2]")).click();
-				
+	}}
+		if(flag){
+			if(arrivalmonth.equals(secondmonth)){ 
+				driver.findElement(By.xpath("(//div[@class='DayPicker-Month']//div[@class='DayPicker-Day']/div/p[text()='"+arrivalday+"'])[2]")).click();				
 					}
-		}
-
-	
-}
+			}}
 	
 	
 	public void enterPassengers(Integer Travellers,String travellerClass) throws InterruptedException
 	{
-		//driver.findElement(By.xpath("//label[@for='travellers']")).click();
 		driver.findElement(By.xpath("//div[@data-cy='flightTraveller']")).click();
 		
 		driver.findElement(By.xpath("//p[@data-cy='adultRange']/following-sibling::ul/li[text()='"+Travellers+"']")).click();		
@@ -111,11 +99,6 @@ public class FlightSearchPage {
 		
 		WebElement element = driver.findElement(By.xpath("//button[@data-cy='travellerApplyBtn']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-		
-//		JavascriptExecutor js = (JavascriptExecutor)driver;
-//		js.executeScript("window.scrollBy(0,550)", "");
-		
-		//element.sendKeys(Keys.DOWN);
 
 	}
 	
