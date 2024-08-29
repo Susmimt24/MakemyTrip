@@ -4,12 +4,12 @@ import CommonProperties.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import webpages.Login;
+import webpages.AmazonSearchPage;
 
 
 public class AmazonWebpage extends BaseClass{
 
-	Login lg = new Login(driver);
+	AmazonSearchPage lg = new AmazonSearchPage(driver);
 	
 	@Given("^User is navigated to url$")
 	public void user_is_on_home_page() {
