@@ -1,6 +1,6 @@
 MakeMyTrip Web Application Automation
 
-* Implemented and developed this MakeMyTrip automation framework using Selenium Java
+* Implemented and developed this MakeMyTrip automation framework in Cucumber using Selenium and Java Programming Language
 
 * It's a Maven project which implements the Page Object Model (POM ) automation framework
 
