@@ -12,10 +12,10 @@ import org.openqa.selenium.Keys;
 
 //import org.openqa.selenium.WebDriver;
 
-public class Login {
+public class AmazonSearchPage {
 	
 	WebDriver driver;
-	public Login(WebDriver driver)
+	public AmazonSearchPage(WebDriver driver)
 	{
 		this.driver = driver;
 		PageFactory.initElements( driver, this); 
