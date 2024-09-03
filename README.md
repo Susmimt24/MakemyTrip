@@ -6,7 +6,7 @@ MakeMyTrip Web Application Automation
 
 * Also incorporated the Extent Reports to generate the test results with the screenshots 
 
-* It's a Data-Driven framework using Scenario Outline/ Example Keyword for inputting various values
+* It's a BDD framework using Scenario Outline/ Example Keyword for inputting various values
 
 Technologies used
 
