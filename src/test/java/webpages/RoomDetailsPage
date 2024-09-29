@@ -1,0 +1,45 @@
+package webpages;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class RoomDetailsPage {
+	WebDriver driver;	
+	WebDriverWait wait;
+	Map <String, String> hotelDetails = new HashMap<>();
+
+		public RoomDetailsPage(WebDriver driver)
+		{
+			this.driver =driver;
+			
+		}
+		public void selectRoom(){
+			ArrayList<String> wid = new ArrayList<String>(driver.getWindowHandles());
+			driver.switchTo().window(wid.get(1));
+			JavascriptExecutor js = (JavascriptExecutor)driver;
+			try
+			{
+			if(driver.findElement(By.xpath("//button[text()='VIEW THIS COMBO']")).isDisplayed())
+			{
+			driver.findElement(By.xpath("//button[text()='VIEW THIS COMBO']")).click();
+			
+			WebElement we = driver.findElement(By.xpath("//span[text()='Select Combo']"));
+			js.executeScript("arguments[0].click();", we);
+			wait.until(ExpectedConditions.visibilityOf(we));
+			driver.findElement(By.xpath("//span[text()='Select Combo']")).click();	
+			}
+			}
+			catch(Exception e)     
+			  { 
+				driver.findElement(By.xpath("//button[text()='BOOK THIS NOW']")).click();
+			  }
+		}
+}
