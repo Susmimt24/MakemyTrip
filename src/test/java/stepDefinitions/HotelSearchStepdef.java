@@ -3,12 +3,20 @@ package stepDefinitions;
 import CommonProperties.BaseClass;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import webpages.DisplayHotelDetails;
 import webpages.HomePage;
 import webpages.HotelSearchPage;
+import webpages.PaymentPage;
+import webpages.ReviewBooking;
+import webpages.RoomDetailsPage;
 
 public class HotelSearchStepdef  extends BaseClass{
 	HotelSearchPage HS = new HotelSearchPage(driver);
 	HomePage H = new HomePage(driver);
+	RoomDetailsPage RD = new RoomDetailsPage(driver);
+	DisplayHotelDetails D = new DisplayHotelDetails(driver);
+	PaymentPage P = new PaymentPage(driver);
+	ReviewBooking R = new ReviewBooking(driver);
 
 	@When("user click on \"([^\"]*)\" Tab$")
 	public void user_click_on_hos_tab(String tabname) {
@@ -43,27 +51,27 @@ public class HotelSearchStepdef  extends BaseClass{
 	@Then("Print all hotels and its price")
 	public void print_hotels() throws InterruptedException {
 	   
-		HS.displayHotelDetails();
+		D.AllHotelDetails();
 	}
 	
 	@Then("select the hotel with price range \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void select_hotel(Integer lowerprice, Integer higherprice) throws InterruptedException {
-	HS.selectHotel(lowerprice,higherprice);   
+	D.selectHotel(lowerprice,higherprice);   
 	
 	}
 	@Then("Select the room")
 	public void select_room() throws InterruptedException {
 	   
-		HS.selectRoom();
+		RD.selectRoom();
 	}
 	@Then("Review Booking")
 	public void review_booking() throws InterruptedException {
-		 HS.review_booking();
+		 R.review_booking();
 		}
 
 	@Then("Enter details in Payment Page")
 	public void payment() throws InterruptedException {
-		 HS.paymentDetails();
+		 P.paymentDetails();
 		}
 }
 
